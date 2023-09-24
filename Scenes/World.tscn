@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Cars/Matatu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Tracks/Track1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Cars/Minibus.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+albedo_color = Color( 0.352941, 1, 0, 1 )
+
+[node name="World" type="Spatial"]
+
+[node name="Track" type="Spatial" parent="."]
+
+[node name="Track1" parent="Track" instance=ExtResource( 3 )]
+
+[node name="CSGBox" type="CSGBox" parent="Track"]
+transform = Transform( 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, 111.102, 0, -1.50576 )
+visible = false
+height = 10.0
+depth = 30.0
+material = SubResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Track"]
+transform = Transform( -0.129409, -0.224144, 0.965926, -0.866025, 0.5, 5.4542e-09, -0.482963, -0.836516, -0.258819, 459.464, 0, -160 )
+visible = false
+height = 10.0
+depth = 30.0
+material = SubResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="Track"]
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 105.102, 1, -158 )
+visible = false
+height = 10.0
+depth = 30.0
+material = SubResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Track"]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -180.663, 0, -246.443 )
+visible = false
+height = 10.0
+depth = 30.0
+material = SubResource( 1 )
+
+[node name="Vehicles" type="Spatial" parent="."]
+
+[node name="Minibus" parent="Vehicles" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49.7502, 1, -8.24979 )
+
+[node name="Matatu" parent="Vehicles" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -70.7502, 1, 5.2498 )
+
+[node name="Minibus2" parent="Vehicles" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.7502, 1, 7.75021 )
+
+[node name="Matatu2" parent="Vehicles" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.7502, 1, -7.75021 )
+
+[node name="Camera" type="Spatial" parent="."]
+
+[node name="camera_pivot" parent="Camera" instance=ExtResource( 2 )]
